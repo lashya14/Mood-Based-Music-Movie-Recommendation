@@ -1,0 +1,96 @@
+/* Base page styles */
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(145deg, #d38b8b, #a15555);
+  margin: 0;
+  padding: 40px 0; /* Give space at top and bottom */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Changed from center */
+  min-height: 100vh; /* Allow scrolling */
+  overflow-x: hidden; /* Only prevent horizontal scroll */
+}
+
+
+/* Glowing container card */
+.container {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow:
+    0 0 15px rgba(255, 200, 200, 0.2),
+    0 0 40px rgba(255, 150, 150, 0.1),
+    0 0 80px rgba(255, 100, 100, 0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: 0.3s;
+  animation: floatUp 6s ease-in-out infinite alternate;
+}
+
+/* Floating effect */
+@keyframes floatUp {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+/* Stylish glowing title */
+.container h1 {
+  font-size: 28px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.container h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  height: 3px;
+  background: linear-gradient(90deg, #ffe29f, #ffa99f, #ff719a);
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ff719a, 0 0 20px #ffa99f;
+  animation: glowPulse 2s infinite alternate;
+}
+
+/* Title glow animation */
+@keyframes glowPulse {
+  from {
+    opacity: 0.6;
+    transform: scaleX(1);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1.1);
+  }
+}
+
+/* Mood buttons */
+button {
+  background: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  margin: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Favorites heading */
+h2 {
+  color: #ffe29f;
+  margin-top: 30px;
+}
